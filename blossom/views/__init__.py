@@ -1,0 +1,1 @@
+from .baseview import index
