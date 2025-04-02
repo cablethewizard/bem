@@ -5,3 +5,4 @@ class Show(models.Model):
     starttime = models.DateTimeField("start time")
     endtime = models.DateTimeField("end time")
     description = models.TextField()
+    active = models.BooleanField(default=False)
