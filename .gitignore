@@ -17,3 +17,6 @@ wheels/
 local_settings.py
 /static
 /media
+
+# environment files
+.env
