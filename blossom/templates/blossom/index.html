@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Show </title>
+  </head>
+  <body>
+    {% if active_shows %}
+    <ul>
+    {% for show in active_shows %}
+        <li><a href="{% url 'showview' show.id %}">{{ show.name }}</a></li>
+  </body>
+</html>
