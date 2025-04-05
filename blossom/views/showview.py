@@ -1,9 +1,8 @@
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.views import generic
-from django.db.models import F
 
 from blossom.models.EventModel import ShowEvent
+from blossom.models.LocationModel import Location
 from blossom.models.ShowModel import Show
 
 
@@ -28,3 +27,4 @@ class EventDetail(generic.DetailView):
 class RoomEventList(generic.ListView):
     template_name = "blossom/rooms.html"
     context_object_name = "rooms"
+    model = Location
