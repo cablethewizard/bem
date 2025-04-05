@@ -1,2 +1,2 @@
-from .baseview import index
-from .showview import showdetail
+from .baseview import IndexView
+from .showview import ShowEvents, EventDetail

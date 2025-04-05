@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title> Event List </title>
+  </head>
+  <body>
+    <ul>
+    {% for event in current_events %}
+        <li><a href="{% url 'blossom:eventdetail' show_id.id event.id %}">{{ event.name }}</a></li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>

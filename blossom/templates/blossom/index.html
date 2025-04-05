@@ -2,12 +2,13 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8" />
-    <title>Show </title>
+    <title>Show</title>
   </head>
   <body>
-    {% if active_shows %}
     <ul>
-    {% for show in active_shows %}
-        <li><a href="{% url 'showview' show.id %}">{{ show.name }}</a></li>
+    {% for show in active_show_list %}
+        <li><a href="{% url 'blossom:showdetail' show.id %}">{{ show.name }}</a></li>
+    {% endfor %}
+    </ul>
   </body>
 </html>
