@@ -25,6 +25,6 @@ class EventDetail(generic.DetailView):
     template_name = 'blossom/eventdetail.html'
     context_object_name = 'event'
 
-def roomdetail(request, room_id):
-    # Show all events occuring in specific room, sorted by time
-    pass
+class RoomEventList(generic.ListView):
+    template_name = "blossom/rooms.html"
+    context_object_name = "rooms"
