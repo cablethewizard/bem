@@ -1,2 +1,2 @@
 from .baseview import IndexView
-from .showview import ShowEvents, EventDetail
+from .showview import ShowEvents, EventDetail, RoomEventList
