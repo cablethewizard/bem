@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_tables2',
     'blossom.apps.BlossomConfig',
     'django.contrib.admin',
     'django.contrib.auth',
