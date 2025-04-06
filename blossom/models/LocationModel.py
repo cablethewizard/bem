@@ -3,5 +3,5 @@ from .ShowModel import Show
 
 class Location(models.Model):
     name = models.CharField(max_length=250)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     eventlocation = models.ForeignKey(Show, on_delete=models.CASCADE)
