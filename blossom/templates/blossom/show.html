@@ -1,14 +1,16 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title> Event List </title>
-  </head>
-  <body>
-    <ul>
-    {% for event in current_events %}
-        <li><a href="{% url 'blossom:eventdetail' show_id.id event.id %}">{{ event.name }}</a></li>
+{%extends "blossom/base.html"%}
+{% block title %}Current Schedule{% endblock%}
+{% load static%}
+
+{%block content%}
+<link rel="stylesheet" href="{% static "blossom/schedule.css" %}">
+  {% load render_table from django_tables2 %}
+    <div class="flex-container">
+    {% for item in data %}
+      <div class="flexitem">
+      <h3>{{item.room}}</h3>
+      {% render_table item.table %}
+      </div>
     {% endfor %}
-    </ul>
-  </body>
-</html>
+    </div>
+{%endblock content%}

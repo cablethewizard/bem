@@ -1,0 +1,13 @@
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+div.flexitem {
+    outline: 2px solid pink;
+    margin-right: 20px;
+}
