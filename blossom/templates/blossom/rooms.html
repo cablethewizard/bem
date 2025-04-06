@@ -1,14 +1,8 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title>Show</title>
-  </head>
-  <body>
-    <ul>
+{% extends "blossom/base.html" %}
+
+{% block title %} Current Schedule {% endblock %}
+{%block content%}
     {% for show in active_show_list %}
         <li><a href="{% url 'blossom:showdetail' show.id %}">{{ show.name }}</a></li>
     {% endfor %}
-    </ul>
-  </body>
-</html>
+{%endblock%}

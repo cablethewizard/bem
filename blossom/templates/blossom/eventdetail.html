@@ -1,13 +1,8 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title> Event </title>
-  </head>
-  <body>
-    <ul>
-        {{event.name}}
-        {{event.starttime}}
-    </ul>
-  </body>
-</html>
+{% extends "blossom/base.html" %}
+{% block title %}{{event.name}}{% endblock title %} 
+{%block content%}
+  <p>Event: {{ event.name }}</p>
+  <p>Start Time: {{ event.starttime }}</p>
+  <p>End Time: {{ event.endtime }}</p>
+  <p>Description:<br />{{ event.description }}</p>
+{%endblock content%}
