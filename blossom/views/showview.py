@@ -1,23 +1,27 @@
 from django.shortcuts import get_object_or_404
 from django.views import generic
-
+from django.shortcuts import render
 from blossom.models.EventModel import ShowEvent
 from blossom.models.LocationModel import Location
 from blossom.models.ShowModel import Show
 
+from blossom.tables.scheduletable import RoomSchedule
 
-class ShowEvents(generic.ListView):
-    template_name = "blossom/show.html"
-    context_object_name = "current_events"
-    
-    def get_queryset(self):
-        self.show = get_object_or_404(Show, id=self.kwargs["show_id"])
-        return ShowEvent.objects.filter(show=self.show)
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["show_id"] = self.show
-        return context
+from django_tables2 import SingleTableView
+
+
+def roomListView(request,show_id):
+    context = []
+    rooms = Location.objects.filter(show=show_id)
+    i = 1
+    for room in rooms:
+        data = {}
+        events = getRoomEventList(room)
+        table = RoomSchedule(events,prefix=f"table_{i}")
+        data['room'] = room.name
+        data['table'] = table
+        context.append(data)
+    return render(request,'blossom/show.html',context={'data':context})
 
 class EventDetail(generic.DetailView):
     model = ShowEvent
@@ -28,3 +32,7 @@ class RoomEventList(generic.ListView):
     template_name = "blossom/rooms.html"
     context_object_name = "rooms"
     model = Location
+
+def getRoomEventList(eventroom:Location):
+    roomEvents = ShowEvent.objects.filter(room=eventroom)
+    return roomEvents
